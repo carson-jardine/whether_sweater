@@ -19,6 +19,7 @@ RSpec.describe 'Forecast Controller' do
         forecast = JSON.parse(response.body, symbolize_names: true)
         @forecast = forecast[:data]
       end
+
       it 'returns forecast data' do
         expect(@forecast).to have_key(:id)
         expect(@forecast[:id]).to eq(nil)
@@ -29,14 +30,67 @@ RSpec.describe 'Forecast Controller' do
         expect(@forecast).to have_key(:attributes)
         expect(@forecast[:attributes]).to be_a(Hash)
 
+        # current weather
         expect(@forecast[:attributes]).to have_key(:current_weather)
         expect(@forecast[:attributes][:current_weather]).to be_a(Hash)
 
+        current_weather = @forecast[:attributes][:current_weather]
+        expect(current_weather).to have_key(:datetime)
+        expect(current_weather).to have_key(:sunrise)
+        expect(current_weather).to have_key(:sunset)
+        expect(current_weather).to have_key(:temperature)
+        expect(current_weather).to have_key(:feels_like)
+        expect(current_weather).to have_key(:humidity)
+        expect(current_weather).to have_key(:uvi)
+        expect(current_weather).to have_key(:visibility)
+        expect(current_weather).to have_key(:conditions)
+        expect(current_weather).to have_key(:icon)
+
+        # daily weather
         expect(@forecast[:attributes]).to have_key(:daily_weather)
         expect(@forecast[:attributes][:daily_weather]).to be_an(Array)
 
+        daily_weather = @forecast[:attributes][:daily_weather][0]
+        expect(daily_weather).to have_key(:date)
+        expect(daily_weather).to have_key(:sunrise)
+        expect(daily_weather).to have_key(:sunset)
+        expect(daily_weather).to have_key(:max_temp)
+        expect(daily_weather).to have_key(:min_temp)
+        expect(daily_weather).to have_key(:conditions)
+        expect(daily_weather).to have_key(:icon)
+
+        # hourly weather
         expect(@forecast[:attributes]).to have_key(:hourly_weather)
         expect(@forecast[:attributes][:hourly_weather]).to be_an(Array)
+
+        hourly_weather = @forecast[:attributes][:hourly_weather][0]
+        expect(hourly_weather).to have_key(:time)
+        expect(hourly_weather).to have_key(:temperature)
+        expect(hourly_weather).to have_key(:wind_speed)
+        expect(hourly_weather).to have_key(:wind_direction)
+        expect(hourly_weather).to have_key(:conditions)
+        expect(hourly_weather).to have_key(:icon)
+      end
+
+      it 'does not return any fields that should not be present' do
+        expect(@forecast[:attributes]).to have_key(:current_weather)
+        current_weather = @forecast[:attributes][:current_weather]
+        expect(current_weather).to_not have_key(:dt)
+        expect(current_weather).to_not have_key(:temp)
+        expect(current_weather).to_not have_key(:weather)
+
+        expect(@forecast[:attributes]).to have_key(:daily_weather)
+        daily_weather = @forecast[:attributes][:daily_weather][0]
+        expect(daily_weather).to_not have_key(:dt)
+        expect(daily_weather).to_not have_key(:temp)
+        expect(daily_weather).to_not have_key(:weather)
+
+        expect(@forecast[:attributes]).to have_key(:hourly_weather)
+        hourly_weather = @forecast[:attributes][:hourly_weather][0]
+        expect(hourly_weather).to_not have_key(:dt)
+        expect(hourly_weather).to_not have_key(:temp)
+        expect(hourly_weather).to_not have_key(:wind_deg)
+        expect(hourly_weather).to_not have_key(:weather)
       end
     end
   end
