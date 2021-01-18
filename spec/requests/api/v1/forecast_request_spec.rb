@@ -93,5 +93,16 @@ RSpec.describe 'Forecast Controller' do
         expect(hourly_weather).to_not have_key(:weather)
       end
     end
+    describe 'No results are returned' do
+      it 'When given no location' do
+        location = ''
+        get '/api/v1/forecast', params: { location: location }
+        expect(response).to_not be_successful
+        expect(response.status).to eq(404)
+
+        error_message = JSON.parse(response.body, symbolize_names: true)
+        expect(error_message[:message]).to eq('Please fill in a location')
+      end
+    end
   end
 end
