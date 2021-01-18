@@ -1,7 +1,7 @@
 class ImageService
   def self.get_image(location)
     response = conn.get('photos') do |req|
-      req.params['query'] = "#{location} landscape"
+      req.params['query'] = "downtown #{location}"
       req.params['per_page'] = 1
     end
     data = parse_data(response)

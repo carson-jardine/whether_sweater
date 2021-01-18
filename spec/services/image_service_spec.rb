@@ -24,7 +24,6 @@ RSpec.describe ImageService do
       expect(result[:user][:links]).to be_a(Hash)
       expect(result[:user][:links]).to have_key(:self)
       expect(result[:user][:links][:self]).to be_a(String)
-
     end
   end
 end
