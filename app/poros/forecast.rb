@@ -36,26 +36,26 @@ class Forecast
       conditions: day[:weather][0][:description],
       icon: day[:weather][0][:icon]
     }
+    end
   end
-end
 
-def format_hourly_params(hourly_data)
-  hourly_data[1..8].map do |hour| {
-    time: Time.at(hour[:dt]).strftime('%T'),
-    temperature: hour[:temp],
-    wind_speed: "#{hour[:wind_speed]} mph",
-    wind_direction: "from #{compass_dir[wind_dir(hour[:wind_deg])]}",
-    conditions: hour[:weather][0][:description],
-    icon: hour[:weather][0][:icon]
-  }
-end
-end
+  def format_hourly_params(hourly_data)
+    hourly_data[1..8].map do |hour| {
+      time: Time.at(hour[:dt]).strftime('%T'),
+      temperature: hour[:temp],
+      wind_speed: "#{hour[:wind_speed]} mph",
+      wind_direction: "from #{compass_dir[wind_dir(hour[:wind_deg])]}",
+      conditions: hour[:weather][0][:description],
+      icon: hour[:weather][0][:icon]
+    }
+    end
+  end
 
-def wind_dir(wind)
-  (((wind % 360) / 22.5) + 0.5).round
-end
+  def wind_dir(wind)
+    (((wind % 360) / 22.5) + 0.5).round
+  end
 
-def compass_dir
-  return ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']
-end
+  def compass_dir
+    return ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']
+  end
 end
