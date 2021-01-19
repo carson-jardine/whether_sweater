@@ -16,10 +16,10 @@ RSpec.describe RestaurantService do
       expect(result[:businesses][0][:is_closed]).to eq(false)
 
       expect(result[:businesses][0]).to have_key(:categories)
-      expect(result[:businesses][0][:categories]).to be_a(Hash)
-      expect(result[:businesses][0][:categories]).to have_key(:title)
-      expect(result[:businesses][0][:categories][:title]).to be_a(String)
-      # figure out what you are passing in arg, could potentially do :title to eq categories
+      expect(result[:businesses][0][:categories]).to be_an(Array)
+      expect(result[:businesses][0][:categories][0]).to have_key(:title)
+      expect(result[:businesses][0][:categories][0][:title]).to be_a(String)
+      expect((result[:businesses][0][:categories][0][:title]).downcase).to eq((search_params[:categories]).downcase)
 
       expect(result[:businesses][0]).to have_key(:location)
       expect(result[:businesses][0][:location]).to be_a(Hash)
