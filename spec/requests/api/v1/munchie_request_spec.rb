@@ -22,8 +22,8 @@ RSpec.describe 'Munchie Request' do
       expect(munchie_data).to have_key(:attributes)
       expect(munchie_data[:attributes]).to be_a(Hash)
 
-      # expect(munchie_data[:attributes]).to have_key(:destination_city)
-      # expect(munchie_data[:attributes][:destination_city]).to eq('Pueblo, CO')
+      expect(munchie_data[:attributes]).to have_key(:destination_city)
+      expect(munchie_data[:attributes][:destination_city]).to eq('Pueblo, CO')
       #
       # expect(munchie_data[:attributes]).to have_key(:travel_time)
       # expect(munchie_data[:attributes][:travel_time]).to be_a(String)
