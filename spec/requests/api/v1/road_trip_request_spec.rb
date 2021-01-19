@@ -23,11 +23,43 @@ RSpec.describe 'Road Trip Request' do
     road_trip_params = { origin: origin, destination: destination, api_key: @user.api_key }
 
     get '/api/v1/road_trip', params: road_trip_params
-
+    require "pry"; binding.pry
     expect(response).to be_successful
     expect(response.status).to eq(200)
 
-    result = JSON.parse(response.body, symbolize_names: true)
+    trip_data = JSON.parse(response.body, symbolize_names: true)
+    # result = JSON.parse(response.body, symbolize_names: true)
+    expect(trip_data).to have_key(:id)
+    expect(trip_data[:id]).to eq(nil)
+
+    expect(trip_data).to have_key(:type)
+    expect(trip_data[:type]).to eq('roadtrip')
+
+    expect(trip_data).to have_key(:attributes)
+    expect(trip_data[:attributes]).to be_a(Hash)
+
+    expect(trip_data[:attributes]).to have_key(:start_city)
+    expect(trip_data[:attributes][:start_city]).to eq('Denver, CO')
+
+    expect(trip_data[:attributes]).to have_key(:end_city)
+    expect(trip_data[:attributes][:end_city]).to eq('Pueblo, CO')
+
+    expect(trip_data[:attributes]).to have_key(:travel_time)
+    expect(trip_data[:attributes][:travel_time]).to eq('1 hour, 10 minutes')
+    # TODO: put in a random time until I know actual data
+
+    expect(trip_data[:attributes]).to have_key(:weather_at_eta)
+    expect(trip_data[:attributes][:weather_at_eta]).to be_a(Hash)
+
+    weather = trip_data[:attributes][:weather_at_eta]
+    expect(weather).to have_key(:temperature)
+    expect(weather[:temperature]).to eq(52.1)
+    # TODO: put in a random temp until I know actual data
+
+    expect(weather).to have_key(:conditions)
+    expect(weather[:conditions]).to eq('partly cloudy with a chance of meatballs')
+    # TODO: put in a random temp until I know actual data
+
   end
 end
 

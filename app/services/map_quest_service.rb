@@ -1,4 +1,4 @@
-class CoordinateService
+class MapQuestService
   def self.get_coordinates(location)
     response = conn.get('address') do |req|
       req.params['location'] = location
