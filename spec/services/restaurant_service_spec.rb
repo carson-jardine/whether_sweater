@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe RestaurantService do
   describe 'When I enter a valid end location' do
-    it 'Returns the name and address of a restaurant', :vcr do
-      # search_params = { location: 'pueblo,co' }
-      result = RestaurantService.get_restaurant('pueblo,co')
+    it 'Returns the name and address of a restaurant' do
+      search_params = { destination: 'pueblo,co', categories: 'chinese' }
+      result = RestaurantService.get_restaurant(search_params)
       expect(result).to be_a(Hash)
       expect(result).to have_key(:businesses)
       expect(result[:businesses]).to be_an(Array)
