@@ -55,6 +55,8 @@ RSpec.describe 'Sessions Controller' do
       post '/api/v1/sessions', headers: headers, params: JSON.generate(login_params)
 
       expect(response).to_not be_successful
+      expect(response.status).to eq(401)
+
       result = JSON.parse(response.body, symbolize_names: true)
 
       expect(result).to have_key(:message)
@@ -63,6 +65,7 @@ RSpec.describe 'Sessions Controller' do
       expect(result).to have_key(:error)
       expect(result[:error]).to eq('Invalid credentials')
     end
+
     it 'user gets error if field is left blank' do
       login_params = {
         email: '',
@@ -74,6 +77,8 @@ RSpec.describe 'Sessions Controller' do
       post '/api/v1/sessions', headers: headers, params: JSON.generate(login_params)
 
       expect(response).to_not be_successful
+      expect(response.status).to eq(422)
+
       result = JSON.parse(response.body, symbolize_names: true)
 
       expect(result).to have_key(:message)
