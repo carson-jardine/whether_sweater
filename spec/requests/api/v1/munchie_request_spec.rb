@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe 'Munchie Request' do
   describe 'When I input valid information' do
     it 'retrieves food and forecast info for a destination city', :vcr do
-      start_city = 'denver,co'
-      end_city = 'pueblo,co'
+      start = 'denver,co'
+      destination = 'pueblo,co'
       food = 'chinese'
-      get '/api/v1/munchies', params: { start: start_city, end: end_city, food: food }
+      get '/api/v1/munchies', params: { start: start, destination: destination, food: food }
 
       expect(response).to be_successful
       expect(response.status).to eq(200)
