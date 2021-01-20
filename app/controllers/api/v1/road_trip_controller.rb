@@ -7,6 +7,8 @@ class Api::V1::RoadTripController < ApplicationController
       trip_params = { origin: road_trip_data[:origin], destination: road_trip_data[:destination] }
       road_trip = RoadTripFacade.create_road_trip(trip_params)
       render json: RoadTripSerializer.new(road_trip)
+    else
+      render json: { message: 'unsuccessful', error: 'Unauthorized API Key' }, status: :unauthorized
     end
   end
 end
