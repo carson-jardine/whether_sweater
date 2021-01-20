@@ -8,7 +8,7 @@ RSpec.describe 'Forecast Controller' do
         json = File.read('spec/fixtures/get_forecast.json')
         forecast_results = JSON.parse(json, symbolize_names: true)
 
-        allow(CoordinateService).to receive(:get_coordinates).with('Denver,CO').and_return(coords)
+        allow(MapQuestService).to receive(:get_coordinates).with('Denver,CO').and_return(coords)
         allow(ForecastService).to receive(:get_forecast).with(coords).and_return(forecast_results)
 
         location = 'Denver,CO'
