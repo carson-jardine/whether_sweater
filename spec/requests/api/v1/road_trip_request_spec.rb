@@ -74,7 +74,29 @@ RSpec.describe 'Road Trip Request' do
 
     result = JSON.parse(response.body, symbolize_names: true)
     trip_data = result[:data]
-    
+
     expect(trip_data[:attributes][:travel_time]).to eq('Impossible Route')
+  end
+
+  it 'returns an error when given an unauthorized API Key' do
+    origin = 'Denver,CO'
+    destination = 'Honolulu,HI'
+
+    road_trip_params = { origin: origin, destination: destination, api_key: 'fake_key' }
+
+    headers = { 'CONTENT_TYPE' => 'application/json' }
+
+    post '/api/v1/road_trip', headers: headers, params: JSON.generate(road_trip_params)
+
+    expect(response).to_not be_successful
+    expect(response.status).to eq(401)
+
+    result = JSON.parse(response.body, symbolize_names: true)
+
+    expect(result).to have_key(:message)
+    expect(result[:message]).to eq('unsuccessful')
+
+    expect(result).to have_key(:error)
+    expect(result[:error]).to eq('Unauthorized API Key')
   end
 end
