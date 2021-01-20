@@ -17,6 +17,12 @@ RSpec.describe RoadTrip do
 
     expect(result.travel_time).to eq("01 hour(s), 39 minute(s)")
 
-    expect(result.weather_at_eta).to eq({ conditions: "clear sky", temperature: 13.89})
+    expect(result.weather_at_eta).to be_a(Hash)
+
+    expect(result.weather_at_eta).to have_key(:conditions)
+    expect(result.weather_at_eta[:conditions]).to be_a(String)
+
+    expect(result.weather_at_eta).to have_key(:temperature)
+    expect(result.weather_at_eta[:temperature]).to be_a(Numeric)
   end
 end
