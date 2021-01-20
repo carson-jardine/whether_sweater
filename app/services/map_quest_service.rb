@@ -9,18 +9,11 @@ class MapQuestService
   end
 
   def self.get_directions(trip_params)
-    # origin_latLng = convert_to_latLng(trip_params[:origin])
-    # destination_latLng = convert_to_latLng(trip_params[:destination])
-
     response = conn.get('directions/v2/route') do |req|
       req.params[:from] = trip_params[:origin]
       req.params[:to] = trip_params[:destination]
     end
     parse_data(response)
-  end
-
-  def self.convert_to_latLng(trip_param)
-    get_coordinates(trip_param).values.join(',')
   end
 
   def self.parse_data(response)

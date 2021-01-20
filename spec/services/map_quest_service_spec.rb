@@ -16,7 +16,11 @@ RSpec.describe MapQuestService do
       user_params = { email: email, password: password, password_confirmation: password }
 
       @user = User.create!(user_params)
-      trip_params = { key: @user.api_key, origin: 'Denver,CO', destination: 'Vail,CO' }
+
+      origin = 'Denver,CO'
+      destination = 'Vail,CO'
+      trip_params = { origin: origin, destination: destination }
+
       result = MapQuestService.get_directions(trip_params)
 
       expect(result).to be_a(Hash)
