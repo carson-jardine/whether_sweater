@@ -14,7 +14,11 @@ class RoadTrip
   end
 
   def format_time(travel_time)
-    time = (travel_time[:formatted_time]).split(':')
-    "#{time[0]} hour(s), #{time[1]} minute(s)"
+    if travel_time[:formatted_time].nil?
+      'Impossible Route'
+    else
+      time = (travel_time[:formatted_time]).split(':')
+      "#{time[0]} hour(s), #{time[1]} minute(s)"
+    end
   end
 end
