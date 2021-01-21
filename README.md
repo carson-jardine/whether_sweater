@@ -306,8 +306,10 @@ Response Example:
 ```
 ***
 ## Contributions
-- Carson Jardine ++ [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/carson-jardine/) ++ [![GitHub][github-shield]](https://github.com/carson-jardine)
-
+- Carson Jardine 
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com//in/carson-jardine/)
+&nbsp;
+[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/carson-jardine)
 ***
 ## Acknowledgements
 This project was completed at the Turing School of Design & Engineering, Backend Engineering Program during Module 3. Checkout the [project page](https://backend.turing.io/module3/projects/sweater_weather/) and [technical requirements](https://backend.turing.io/module3/projects/sweater_weather/requirements).
