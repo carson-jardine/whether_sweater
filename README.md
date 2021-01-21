@@ -34,19 +34,22 @@ Please see the external API resources used [here](#external-api-info)
 - `OPEN_WEATHER_API_KEY: <api_key>`
 - `UNSPLASH_API_KEY: <api_key>`
 
-_to get your own API keys, please follow the links listed [here](#external-api-info). You will only need one for MapQuest_
-_[Gems Used](#gems-installed)
+_To get your own API keys, please follow the links listed [here](#external-api-info). You will only need one for MapQuest_
+
+_[Gems Used](#gems-installed)_
 ***
 
 ## Usage
 
 ### Testing: 
 - Run tests: `bundle exec rspec`
-- Run through the different endpoints by running `rails s` from you CLI
-  - **Recommend using Postman** to see specific responses. 
+- Run through the different endpoints by running `rails s` from your CLI
+  - **Recommended** Use Postman to see specific responses. 
+  
   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2ea6fbdf2969697791fc)
-  - Note: If you are having trouble with the [endpoints](#endpoints) working, please ensure you are in your development environment. 
-  - If you need to change to your development environment, please run `ENV=development rails s` instead of just `rails s`
+  
+  - **Note**: If you are having trouble with the [endpoints](#endpoints) working, please ensure you are in your development environment. 
+    - If you need to change to your development environment, please run `ENV=development rails s` instead of just `rails s`
 
 
 ### Endpoints:
