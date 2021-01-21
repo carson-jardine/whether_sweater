@@ -1,5 +1,5 @@
 # Whether Sweater...Sweater Weather 
-<img src="https://media.giphy.com/media/1hoNF06qLj0AehQrUE/giphy.gif" width="250" height="250">
+<img src="https://media.giphy.com/media/1hoNF06qLj0AehQrUE/giphy.gif" width="350" height="350">
 
 
 ## Table of Contents
@@ -317,9 +317,10 @@ Response Example:
 ```
 ***
 ## Contributions
-- Carson Jardine 
+**Carson Jardine** 
+
 [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com//in/carson-jardine/)
-&nbsp;
+&nbsp; ||
 [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/carson-jardine)
 ***
 ## Acknowledgements
