@@ -1,5 +1,6 @@
 # Whether Sweater...Sweater Weather 
-![](https://media.giphy.com/media/1hoNF06qLj0AehQrUE/giphy.gif)
+<img src="https://media.giphy.com/media/1hoNF06qLj0AehQrUE/giphy.gif" width="250" height="250">
+
 
 ## Table of Contents
 - [Project Overview](#project-overview)
