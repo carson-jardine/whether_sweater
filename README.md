@@ -1,5 +1,5 @@
 # Whether Sweater...Sweater Weather 
-![](https://media.giphy.com/media/138HHg3jdhb1vy/giphy.gif)
+![](https://media.giphy.com/media/1hoNF06qLj0AehQrUE/giphy.gif)
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -10,11 +10,11 @@
 
 ***
 ## Project Overview
-Whether Sweater, besides being somewhat of a tongue twister, is a fictional trip planning back-end application built with Rails for Turing School of Software and Design Mod 3. It uses data from several external API services to provide the "front-end team" with current and future forecast information for a location from its coordinates as well as an image of that location. 
+Whether Sweater, besides being somewhat of a tongue twister, is a fictional trip planning back-end application built with Rails. It uses data from several external API services to provide the "front-end team" with current and future forecast information for a location from its coordinates as well as an image of that location. 
 
 Please see the external API resources used [here](#external-api-info)
 
-#### Built With:
+### Built With:
 - Ruby 2.5.3
 - Rails 5.2.4
 - Postgres
@@ -22,7 +22,7 @@ Please see the external API resources used [here](#external-api-info)
 ***
 ## Getting Started
 
-#### Local Setup:
+### Local Setup:
 1. Fork and clone this repository.
 2. `cd whether_sweater`
 3. Run `bundle install` to install gem packages.
@@ -38,7 +38,7 @@ _to get your own API keys, please follow the links listed [here](#external-api-i
 
 ## Usage
 
-#### Testing: 
+### Testing: 
 - Run tests: `bundle exec rspec`
 - Run through the different endpoints by running `rails s` from you CLI
   - **Recommend using Postman** to see specific responses. 
@@ -47,7 +47,8 @@ _to get your own API keys, please follow the links listed [here](#external-api-i
   - If you need to change to your development environment, please run `ENV=development rails s` instead of just `rails s`
 
 
-#### Endpoints:
+### Endpoints:
+
 **Retrieve weather for a city**
 `GET /api/v1/forecast?location=city,state`
 
