@@ -35,6 +35,8 @@ Please see the external API resources used [here](#external-api-info)
 - `UNSPLASH_API_KEY: <api_key>`
 
 _to get your own API keys, please follow the links listed [here](#external-api-info). You will only need one for MapQuest_
+_[Gems Used](#gems-installed)
+***
 
 ## Usage
 
@@ -48,8 +50,13 @@ _to get your own API keys, please follow the links listed [here](#external-api-i
 
 
 ### Endpoints:
+- [Retrive Weather for a Location](#retrieve-weather-for-a-location)
+- [Background Image by Location](#background-image-by-location)
+- [User Registration](#user-registration)
+- [User Login](#user-login)
+- [Road Trip](#road-trip)
 
-**Retrieve weather for a city**
+#### Retrieve Weather for a location
 `GET /api/v1/forecast?location=city,state`
 
 This endpoint retrieves weather forecast information based on a city/state combination. It references the MapQuest Geocoding API to find longitude and latitude coordinates which is passed to the OpenWeather One Call API to return a set of current, daily and hourly forecast information. The response is in JSON format.
@@ -192,7 +199,7 @@ Response Example:
 }
 ```
 
-**Background Image by Location**
+#### Background Image by Location
 `GET /api/v1/backgrounds?location=city,state`
 
 This endpoint retrieves an image from the Unsplash API for the location query given. The endpoint also includes credit information for the author of the image and their website url. The response is returned in JSON format.
@@ -217,7 +224,7 @@ Response Example:
     }
 ```
 
-**User Registration**
+#### User Registration
 `POST /api/v1/users`
 
 The User Registration endpoint takes in a JSON request in the body and creates a user unless that user already exists in the database. In addition, the User model generates a unique API Key for that user and saves it along with their email address and encrypted password. The endpoint sends back that user's email address and API key in the body of the response.
@@ -245,7 +252,7 @@ Response Example:
 }
 ```
 
-**User Login**
+#### User Login
 `POST /api/v1/sessions`
 
 The login endpoint is able to receive a JSON body request with an email address and password, authenticate that user, and return that user's email address and API key in the body of the response.
@@ -272,7 +279,7 @@ Response Example:
 }
 ```
 
-**Road Trip**
+#### Road Trip
 `POST /api/v1/road_trip`
 
 This endpoint uses a origin and destination to provide an expected time of arrival (`travel_time`) and the weather forecast at the destination, including its condition and temperature. The JSON body request must include an authorized API key to return a response.
@@ -320,3 +327,16 @@ This application utilizes the following free API datasets:
 - [MapQuest Directions API](https://developer.mapquest.com/documentation/directions-api/)
 - [OpenWeather OneCall API](https://openweathermap.org/api/one-call-api)
 - [Unsplash Image API](https://unsplash.com/developers)
+
+#### Gems Installed:
+- [`factory-bot`](https://github.com/thoughtbot/factory_bot) - testing object generator
+- [`faker`](https://github.com/faker-ruby/faker) - generates fake data for testing
+- [`faraday`](https://github.com/lostisland/faraday) - HTTP client library that provides a common interface over many adapters
+- [`fastjson-api`](https://github.com/Netflix/fast_jsonapi) - Ruby object serializer
+- [`figaro`](https://github.com/laserlemon/figaro) - makes it easy to securely configure Rails applications.
+- [`pry`](https://github.com/pry/pry) - runtime developer console
+- [`rspec-rails`](https://github.com/rspec/rspec-rails) - testing suite
+- [`simplecov`](https://github.com/simplecov-ruby/simplecov) - tracks test coverage
+- [`shoulda-matchers`](https://github.com/thoughtbot/shoulda-matchers) - simplifies testing syntax
+- [`vcr`](https://github.com/vcr/vcr) - records your test suite's HTTP interactions and replays them during future test runs for fast, deterministic, accurate tests.
+- [`webmock`](https://github.com/bblimke/webmock) - library for stubbing and setting expectations on HTTP requests in Ruby.
