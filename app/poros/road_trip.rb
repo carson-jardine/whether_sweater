@@ -7,6 +7,7 @@ class RoadTrip
 
   def initialize(trip_data, travel_time, weather_at_eta)
     @id = nil
+    # set id nil in serializer 
     @start_city = trip_data[:origin]
     @end_city = trip_data[:destination]
     @travel_time = format_time(travel_time)

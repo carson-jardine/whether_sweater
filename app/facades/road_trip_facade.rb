@@ -8,6 +8,7 @@ class RoadTripFacade
   def self.weather_at_eta(trip_data)
     location = trip_data[:destination]
     forecast = ForecastFacade.get_forecast(location)
+    # facades shouldn't know about each other
     hour_of_arrival = find_arrival_time(trip_data)
     if hour_of_arrival != 'Impossible Route'
       forecast_at_arrival = forecast.hourly_weather.find do |hourly|

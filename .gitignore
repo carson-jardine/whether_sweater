@@ -27,3 +27,6 @@
 
 # Ignore SimpleCov coverage
 coverage
+
+# Ignore DS_Store
+.DS_Store
