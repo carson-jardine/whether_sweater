@@ -1,8 +1,8 @@
 {
     "lat": 39.7625,
     "lon": -104.9901,
-    "timezone": "Europe/London",
-    "timezone_offset": 0,
+    "timezone": "America/Denver",
+    "timezone_offset": -25200,
     "current": {
         "dt": 1610936428,
         "sunrise": 1610893092,
