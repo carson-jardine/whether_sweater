@@ -77,7 +77,7 @@ RSpec.describe Forecast do
 
     first = hourly[0]
     expect(first).to have_key(:time)
-    expect(Time.parse(first[:time]).utc).to eq(Time.parse("20:00:00"))
+    expect(Time.parse(first[:time]).utc).to eq(Time.parse("20:00:00").utc)
 
     expect(first).to have_key(:temperature)
     expect(first[:temperature]).to eq(41.38)
