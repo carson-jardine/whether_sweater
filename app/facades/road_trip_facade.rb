@@ -24,7 +24,6 @@ class RoadTripFacade
   def self.find_arrival_time(trip_data)
     current_time = Time.now.to_i
     travel_time = travel_time(trip_data)
-    
     if travel_time[:real_time].nil? || travel_time[:real_time] >= 10000000
       return 'Impossible Route'
     else
