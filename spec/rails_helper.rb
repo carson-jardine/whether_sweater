@@ -74,8 +74,9 @@ Shoulda::Matchers.configure do |config|
 end
 
 VCR.configure do |config|
-  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.allow_http_connections_when_no_cassette = true
   config.hook_into :webmock
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   # config.configure_rspec_metadata!
   config.filter_sensitive_data('<MAPQUEST_KEY>') { ENV['MAPQUEST_API_KEY'] }
   config.filter_sensitive_data('<OPEN_WEATHER_KEY>') { ENV['OPEN_WEATHER_API_KEY'] }
