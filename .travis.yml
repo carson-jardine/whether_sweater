@@ -1,0 +1,17 @@
+language: ruby
+rbenv:
+- 2.5.3
+addons:
+  postgresql: 9.6
+script:
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: gAbPdlCebMVtwH8pFFIVgfebBYcLBgvFqF43CZo6LhuCjRDO15UIXaFT38Gw93gBA7nf1HUDI5YJ3FnbX7o4BqNfL0zwi8ve0vvvov6kXVXrzATqfdbPp6S6LlGW+7y4RAyI/Kja2O7H568r4Swx0np+zWQTCc25EuaRHaWsNXNnutPAGDCERHMT9T41qQdkVwHLaLuhAjGRvPq/efso0HDI1DGh6oKfJkMhO5Xc122rYR1dmVbwD2VPZIa3X47PKD/sjBn4hnGX6/3h7iALPP9xVWpqFZWBApTdnOJF5r0V5MiPq9a38hL+B47CCIfBAzpFMmmHy6Lhh/VQZvzeASena+QsU8zj0SOJT+Z3dauct9mA8hBczMSN+ZSl7c9VX4k3Oo9HEeKhfvgbGm6AW6fcUmv3DhyJ/Aw1Buf7FSbfHN86EgisQ301KS8UFjArczg6J5+IlrRVvMoZf5TwuYiq731lET35++AWQp7q+ABmbuycj8JJyvsJqjQtRCeIz3W78oqNJM5gdTfZmFVy8sY7HO2qdDUsAIHlGKgKz95ILY7TMq9TIW/nrqops3asOtLGIrPt87Oa1BkpwJmT+n3lTBZ6gVahaDIPK4mIII37p4AjIKqk8NhlICxlPRTWOo09bYcXp7koQtKbvNo5ya7uYlV7eyVmKEt3D5yO9Xc=
+  app: whether-sweater-2021
+  on:
+    repo: carson-jardine/whether-sweater
+        branch: main
+  run: rails db:migrate

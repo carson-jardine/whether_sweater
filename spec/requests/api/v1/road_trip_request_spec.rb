@@ -62,6 +62,7 @@ RSpec.describe 'Road Trip Request' do
       expect(weather[:conditions]).to be_a(String)
     end
   end
+  
   it 'route is not possible' do
     VCR.use_cassette('impossible_trip') do
       origin = 'Denver,CO'
